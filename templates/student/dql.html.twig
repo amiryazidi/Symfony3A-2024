@@ -1,0 +1,27 @@
+<form method='POST' action="/student/dql2"> 
+
+    <lablel> Search </label>
+    <input type="text" name="test"> <br>
+    <input type="submit" value="Search">
+</form>
+
+
+<table border="1">
+    <tr>
+    <td>ID </td>
+    <td> NAME</td>
+    <td> EMAIL</td>
+    <td> ACTION</td>
+    </tr>
+    {% for t in result%}
+    <tr>
+    <td> {{t.id}} </td>
+    <td> {{t.name}}</td>
+    <td> {{t.email}}</td>
+    <td  {% if t.classroom!= null %}>  
+        {{t.classroom.name}}
+    </td   {% endif%}>
+
+    {% endfor %}
+    </table>
+   

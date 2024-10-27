@@ -1,0 +1,29 @@
+
+<h1>Liste des Projets</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nom du Projet</th>
+            <th>Description</th>
+            <th>État</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for projet in projects %}
+            <tr>
+                <td>{{ projet.nom }}</td>
+                <td>{{ projet.description }}</td>
+                <td>{{ projet.etat }}</td>
+                <td>
+                    <a href="{{ path('projet_details', {id: projet.id}) }}">Détails</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun projet trouvé</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

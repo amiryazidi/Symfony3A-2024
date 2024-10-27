@@ -1,0 +1,37 @@
+
+
+<ul>
+    <li><a href="{{ path('app_list_author') }}">show authors</a> </li>
+    <li><a href="{{ path('app_crud_book') }}">show books</a> </li>
+</ul>
+    <h1>List of authors</h1>
+<form method="get" action={{ path('app_list_author') }}>
+    <input type="text" name="search">
+    <button type="submit">search</button>
+</form>
+
+<table border="1">
+        <tr>
+            <th>Author Name</th>
+            <th>Author Email</th>
+            <th>Action</th>
+        </tr>
+
+        {% for author in authors %}
+        <tr>
+            <td>{{ author.name }}</td>
+            <td>{{ author.email }}</td>
+            <td> <a href="{{ path('app_update_author', {'id': author.id}) }}">update</a>
+                <a href="{{ path('app_delete_author', {'id': author.id}) }}">Delete</a>
+
+            </td>
+
+        </tr>
+        {% else %}
+            <p>No authors found</p>
+        {% endfor %}
+
+</table>
+
+<a href="{{ path('app_new_author') }}">add a new author</a>
+

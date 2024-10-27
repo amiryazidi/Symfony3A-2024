@@ -1,0 +1,21 @@
+<table border="1">
+    <tr>
+    <td>ID </td>
+    <td> NAME</td>
+    <td> EMAIL</td>
+    <td> ACTION</td>
+    </tr>
+    {% for t in students%}
+    <tr>
+    <td> {{t.id}} </td>
+    <td> {{t.name}}</td>
+    <td> {{t.email}}</td>
+  <td  {% if t.classroom!= null %}>  
+    {{t.classroom.name}}
+</td   {% endif%}>
+    <td><a href={{path('remove',{'id':t.id})}}>remove</a>
+    <a href={{path('update',{'id':t.id})}}>update</a>
+    </tr>
+    {% endfor %}
+    </table>
+    <a href="{{path("add")}} " >add author </a> 

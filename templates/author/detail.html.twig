@@ -1,0 +1,8 @@
+{% if author %}
+    <h1>{{ author.username }}</h1>
+    <img src="{{ asset(author.picture) }}" alt="{{ author.username }}" />
+    <p>Email: {{ author.email }}</p>
+    <p>Number of Books: {{ author.nb_books }}</p>
+{% else %}
+    <p>Author not found.</p>
+{% endif %}
